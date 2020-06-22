@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import AddCategory from './components/AddCategory';
 import GifGrid from './components/GifGrid';
+import PropTypes from 'prop-types';
 
-const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['Boku No Hero']);
+const GifExpertApp = ({ defaultCategories }) => {
+    const [categories, setCategories] = useState(defaultCategories);
 
     // const handleAdd = e => {
     //     const newCategory = 'Rising of Shield Hero';
@@ -35,5 +36,13 @@ const GifExpertApp = () => {
         </Fragment>
     );
 }
+
+GifExpertApp.propTypes = {
+    defaultCategories: PropTypes.array
+};
+
+GifExpertApp.defaultProps = {
+    defaultCategories: []
+};
  
 export default GifExpertApp;
